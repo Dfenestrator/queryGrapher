@@ -1,13 +1,13 @@
 # queryGrapher
-A MySQL query graphing tool, written in Flask. Flask is a python web platform. It's like a simpler version of Django, geared towards smaller projects. The graph output uses the Google Charts Line Chart API. Once you have all the dependencies, this project is ready to go, and includes a connection to a sample MySQL database. Please see the screenshot in this project for a sample.
+A MySQL query graphing tool, written in Flask. Flask is a python web platform. It's similar to Django, but simpler, geared towards smaller projects. The graph output uses the Google Charts Line Chart API. Once you have all the dependencies, this project is ready to go, and includes a connection to a sample MySQL database. Please see the screenshot in this project for a sample.
 
-To run this project, you need Python 2 and Flask installed on your system. Once you have python and pip installed, you can run the following to get the right dependencies:
+To run this project, you need Python 2, Flask, and MySQL installed on your system. Once you have python and pip installed, you can run the following to get the right dependencies:
 
 sudo pip install virtualenv  
 sudo pip install Flask  
 sudo pip install flask-mysqldb
 
-If you are having trouble, please verify with Flask's documentation in case I am missing something in the list above.
+If you are having trouble, please verify with Flask's and MySQL's documentation in case I am missing something in the list above.
 
 Once all dependencies are in place, run the following:
 
