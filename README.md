@@ -3,9 +3,7 @@ A MySQL query graphing tool, written in Flask. Flask is a python web platform. I
 
 To run this project, you need Python 2 and Flask installed on your system. Once you have python and pip installed, you can run the following to get the right dependencies:
 
-sudo pip install virtualenv
-sudo pip install Flask
-sudo pip install flask-mysqldb
+sudo pip install virtualenv | sudo pip install Flask | sudo pip install flask-mysqldb
 
 If you are having trouble, please verify with Flask's documentation in case I am missing something in the list above.
 
