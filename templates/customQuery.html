@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MySQL Query Graphing Tool</title>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+
+// Load the Visualization API and the piechart package.
+google.charts.load('current', {'packages':['corechart']});
+
+</script>
+
+</head>
+
+<body>
+<div>
+   <h1><b>MySQL Query Graphing Tool</b></h1>
+   <form id="graphForm" >
+      <label>Query</label><br>
+      <textarea name="query" rows="15" cols="80"></textarea>
+      <input type="submit" value="GRAPH">
+   </form>
+</div>
+
+<div class="statusDiv" id="wait_div"></div>
+<div class="statusDiv" id="chart_div"></div>
+
+<script>
+   //jQuery callback function
+   $( "#graphForm" ).submit(function( event ) 
+   {
+      $("#wait_div").html("Calculating results...");
+      $("#chart_div").html("");
+      
+      // Load data into JSON format from backend tables.
+      $.ajax(
+      {
+         url: "getData", //set callback URL here
+         type: "GET",
+         data: $( ":input" ).serialize(),
+         dataType: "json",
+         success: function(data)
+         {
+            // Clear wait text
+            $("#wait_div").html("");
+
+            // Create our data tables out of array data loaded from server.
+            if(data.result)
+            {
+               //check if there is any data
+               if(!data.result[1])
+               {
+                  $("#chart_div").html("No data, check syntax!");
+               }
+               else
+               {
+                  //set options: explorer on enables zooming
+                  var options =   { width: 1000,
+                                    height: 600,
+                                    explorer: { actions: ['dragToZoom', 'rightClickToReset'] },
+                                    curveType: 'function',
+                                    hAxis: { title: data.result[0][0] },
+                                    }
+
+                  //create google data table from returned array
+                  var chartData = new google.visualization.arrayToDataTable(data.result);
+                  //create chart object
+                  var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+                  //draw chart
+                  chart.draw(chartData, options);
+               }
+            }
+            else
+            {
+               $("#chart_div").html("Error! No data returned");
+            }
+         }
+      });
+
+      event.preventDefault();
+   });
+</script>
+</body>
+</html>
