@@ -7,9 +7,9 @@ DEBUG = True
 
 # variables for database access
 HOST = 'sql3.freemysqlhosting.net'
-USER = 'sql3112872'
-PASSWD = 'QMWVSEkv1r'
-DATABASE = 'sql3112872'
+USER = 'sql3114361'
+PASSWD = 'zZl9FPvPV9'
+DATABASE = 'sql3114361'
 
 # create application
 app = Flask(__name__)
