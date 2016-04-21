@@ -59,7 +59,7 @@ google.charts.load('current', {'packages':['corechart']});
                   //set options: explorer on enables zooming
                   var options =   { width: 1000,
                                     height: 600,
-                                    explorer: { actions: ['dragToZoom', 'rightClickToReset'] },
+                                    explorer: { actions: ['dragToZoom', 'rightClickToReset'], maxZoomIn: 0.01 },
                                     curveType: 'function',
                                     hAxis: { title: data.result[0][0] },
                                     }
